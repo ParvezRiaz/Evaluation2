@@ -7,12 +7,14 @@ function handleFormSubmit(event){
   const bookCategory = document.getElementById("bookCategory").value;
 
 
+
+
 const book = {
     name : bookName,
     author : authorName,
     description : bookDescription,
     addedDate : addedDate,
-    category : bookCategory,
+    category : bookCategory
 
 };
 
@@ -29,3 +31,39 @@ document.getElementById('bookForm').reset() ;
 }
 
 document.getElementById('bookForm').addEventListener('submit',handleFormSubmit);
+
+
+document.addEventListener("DOMContentLoaded", function ()) {
+  let books = JSON.parse(localStorage.getItem("books")) || [];
+
+  const displayBooks = (books) => {
+    const tableBody = document.getElementById("book-list");
+    tableBody.innerHTML = "";
+    books.forEach((book) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+                <td>${book.name}</td>
+                <td>${book.author}</td>
+                <td>${book.description}</td>
+                <td>${book.addedDate}</td>
+                <td>${book.category}</td>
+                <td>${book.price}</td>
+                <td><button class="buy-btn" data-id="${book.id}">Buy</button></td>
+                <td><button class="bookmark-btn" data-id="${book.id}">Bookmark</button></td>
+            `;
+      tableBody.appendChild(row);
+    });
+    document.getElementById("book-count").textContent = books.length;
+  };
+
+  displayBooks(books);
+
+  document
+    .getElementById("category-filter")
+    .addEventListener("change", function () {
+      const selectedCategory = this.value;
+      const filteredBooks = selectedCategory
+        ? books.filter((book) => book.category === selectedCategory)
+        : books;
+      displayBooks(filteredBooks);
+    });}
