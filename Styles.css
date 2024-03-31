@@ -1,0 +1,13 @@
+#container{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#container > div{
+    margin: 10px auto;
+}
+.navbar a{
+    margin: 10px ;
+}

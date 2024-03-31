@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="Styles.css">
+    
+
 </head>
 <body>
+
+    <div id="container">
+        <div>
+           <h2>Masai Library</h2>
+        </div>
+        <div class="navbar">  
+            <a href="index.html" target="_blank">Home</a>
+            <a href="dashboard.html" target="_blank">Dashboard</a>
+            <a href="buy.html" target="_blank">My Books</a>
+            <a href="bookmark.html" target="_blank">Bookmarks</a>
+        </div>
+        
+    </div>
+    <hr>
+    <h3>
+        Library Management System
+    </h3>
+    <div>
+       <form id="bookForm">
+        <input type="text" id="bookName" placeholder="Book Name" required> <br>
+        <input type="text" id="authorName" placeholder="Author Name" required><br>
+        <input type="text" id="bookDescription" placeholder="Book Description" required><br>
+        <label for="addedDate">Added Date:-</label> <br>
+        <input type="date" id="addedDate" required> <br>
+        <select  id="bookCategory"  required>
+        <option value=""> Select Category</option>    
+        <option value="Fiction">Fiction</option>
+        <option value="Self Help">Self Help</option>
+        <option value="Finance">Finance</option>
+        </select> <br>
+        <button type="submit">Submit</button>
+
+    </form>
     
+    </div>
+  
 </body>
 </html>
+<script src="./Scripts.js"></script>
